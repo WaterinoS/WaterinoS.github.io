@@ -22,10 +22,12 @@
 <body>
 <div class="left-menu">
     <div class="content-logo">
-        <div class="logo">
-            <img width="32" height="32" src="https://www.helios.eu/files/hep-star.svg" />
-            <span>Helios Pantheon API</span>
-        </div>
+			<div class="logo">
+				<a href="https://helios.eu/">
+					<img width="32" height="32" src="uploads/logo.svg" />
+				</a>
+				<span>Helios Pantheon API</span>
+			</div>
         <button class="burger-menu-icon" id="button-menu-mobile">
             <svg width="34" height="34" viewBox="0 0 100 100"><path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"></path><path class="line line2" d="M 20,50 H 80"></path><path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path></svg>
         </button>
@@ -46,11 +48,44 @@
             <li class="scroll-to-link" data-target="content-get-config">
                 <a>Konfigurace</a>
             </li>
-			<li class="scroll-to-link" data-target="content-get-processes">
-                <a>Chování</a>
-            </li>
 			<li class="scroll-to-link" data-target="content-get-tech-doc">
-                <a>Technická dokumentace</a>
+				<a>Technická dokumentace</a>
+			</li>
+			<li class="scroll-to-link" data-target="content-get-recommended-filters">
+				<a>Doporučené filtrovací parametry pro GET</a>
+			</li>
+			<li class="scroll-to-link" data-target="content-get-processes-dr">
+                <a>Chování - Use Case: Založení dobropisu</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-fv">
+                <a>Chování - Use Case: Založení faktury vydané</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-platce">
+                <a>Chování - Use Case: Založení plátce</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-put-platce">
+                <a>Chování - Use Case: Aktualizace plátce</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-inv-platce">
+                <a>Chování - Use Case: Zneplatnění plátce</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-pred">
+                <a>Chování - Use Case: Založení předpisu</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-put-pred">
+                <a>Chování - Use Case: Aktualizace předpisu</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-inv-pred">
+                <a>Chování - Use Case: Stornování předpisu</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-prep">
+                <a>Chování - Use Case: Založení přeplatku</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-put-prep">
+                <a>Chování - Use Case: Aktualizace přeplatku</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-processes-inv-prep">
+                <a>Chování - Use Case: Stornování přeplatku</a>
             </li>
         </ul>
     </div>
@@ -67,33 +102,216 @@
 		<div class="overflow-hidden content-section" id="content-get-installation">
             <h1>Instalace Pantheon API</h1>
             <p>
-                TODO
+                <strong>Je potřeba mít již hotovu instalaci klienta.</strong>
+				<object data="uploads/sys.doc.pdf" type="application/pdf" width="100%" height="500px">
+					<p>Nepodařilo se zobrazit PDF soubor.</p>
+				</object>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-config">
             <h1>Konfigurace Pantheon API</h1>
             <p>
-                TODO
-            </p>
-        </div>
-		<div class="overflow-hidden content-section" id="content-get-processes">
-            <h1>Chování Pantheon API</h1>
-            <p>
-                TODO
+				<strong>1. Dohledat a otevřít pořadač 'Konfigurační položky REST API Pantheon'.</strong><br/>
+                <img src="uploads/folder.png" /><br/>
+				<strong>2. Nad pořadačem v přehledu spustit funkci 'Konfigurovat Pantheon API'.</strong><br/>
+                <img src="uploads/cowley.png" /><br/>
+				<strong>3. Nakonfigurovat a uložit nastavení - tlačítko: OK.</strong><br/>
+                <img src="uploads/save_config.png" /><br/>
+				<strong>Hotovo, nyní se změní chování API za běhu.</strong>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-tech-doc">
-            <h1>Technická dokumentace Pantheon API</h1>
+            <h1>Technická dokumentace</h1>
             <p>
                 <a href="./swaggerDoc/index.html">Technická dokumentace zde</a>
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-recommended-filters">
+            <h1>Doporučené filtrování při GET požadavku</h1>
+            <p>
+                <h4>Query parametry</h4>
+            <table class="central-overflow-x">
+                <thead>
+					<tr>
+						<th>Požadavek</th>
+						<th>Doporučené filtrování v query</th>
+						<th>Důvod</th>
+						<th>Rychlost (s)</th>
+					</tr>
+                </thead>
+                <tbody>
+					<tr>
+						<td>GET Platce</td>
+						<td>?jmeno=[V]&prijmeni=[V]&datumNarozeni=[V:MM-DD-YYYY]&ico=[V]&kodKnihy=[V]&variabilniSymbol=[V]</td>
+						<td>Nejrychlejší zpracování a výstup</td>
+						<td>TBD</td>
+					</tr>
+                </tbody>
+            </table>
+            </p>
+        </div>
+		<!-- USE CASES -->
+		<div class="overflow-hidden content-section" id="content-get-processes-dr">
+            <h1>Chování - Use Case: Založení dobropisu</h1>
+			<p>
+                TODO
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-processes-fv">
+            <h1>Chování - Use Case: Založení faktury vydané</h1>
+            <p>
+                TODO
+            </p>
+        </div>
+		<!-- USE CASES - PLÁTCE -->
+		<div class="overflow-hidden content-section" id="content-get-processes-platce">
+            <h1>Chování - Use Case: Založení plátce</h1>
+			<pre>
+				Příklad úspěšného založení
+				<code class="json">
+{
+	"errors": null,
+	"celkemZaPredpisy": 0.0,
+	"kodKnihy": 444,
+	"platceId": 119097,
+	"platceIdEx": "PIX_000202",
+	"platnostDo": null,
+	"platnostOd": "2022-01-01T00:00:00",
+	"poznamka": "",
+	"specifickySymbol": null,
+	"spojovaciCislo": 0.0,
+	"variabilniSymbol": "4440000202",
+	"zbyvaZaPredpisy": 0.0,
+	"organizace": {
+		"cisloOrganizace": 119096,
+		"nazevZkraceny": "Novák",
+		"nazevDoplnujici": "",
+		"jmeno": "Karel",
+		"prijmeni": "Novák",
+		"ico": "",
+		"nazevOrganizace": "Novák Karel",
+		"dic": "CZ11111111111",
+		"pravniForma": "SO",
+		"eMail": "org@org.net",
+		"poznamka": "",
+		"datumNarozeni": "1988-10-10T00:00:00",
+		"datumUmrti": null,
+		"rodneCislo": "",
+		"organizaceIdEx": "OIX_00202",
+		"platceDph": "N",
+		"idPartnera": "EXP_00202",
+		"stav": "6",
+		"zemeId": "CZ",
+		"adresy": []
+	}
+}
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-processes-put-platce">
+            <h1>Chování - Use Case: Aktualizace plátce</h1>
+			<pre>
+				Příklad úspěšné aktualizace
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-processes-inv-platce">
+            <h1>Chování - Use Case: Zneplatnění plátce</h1>
+			<pre>
+				Příklad úspěšného zneplatnění
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<!-- USE CASES - PŘEDPIS -->
+		<div class="overflow-hidden content-section" id="content-get-processes-pred">
+            <h1>Chování - Use Case: Založení předpisu</h1>
+			<pre>
+				Příklad úspěšného založení
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-processes-put-pred">
+            <h1>Chování - Use Case: Aktualizace předpisu</h1>
+			<pre>
+				Příklad úspěšné aktualizace
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-processes-inv-pred">
+            <h1>Chování - Use Case: Stornování předpisu</h1>
+			<pre>
+				Příklad úspěšného stornování
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<!-- USE CASES - PŘEPLATEK -->
+		<div class="overflow-hidden content-section" id="content-get-processes-prep">
+            <h1>Chování - Use Case: Založení přeplatku</h1>
+			<pre>
+				Příklad úspěšného založení
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-processes-put-prep">
+            <h1>Chování - Use Case: Aktualizace přeplatku</h1>
+			<pre>
+				Příklad úspěšné aktualizace
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-processes-inv-prep">
+            <h1>Chování - Use Case: Stornování přeplatku</h1>
+			<pre>
+				Příklad úspěšného stornování
+				<code class="json">
+					TODO
+				</code>
+			</pre>
+            <p>
+                TODO
             </p>
         </div>
     </div>
     <div class="content-code"></div>
 </div>
-<!-- Github Corner Ribbon - to remove (Ribbon created with : http://tholman.com/github-corners/ )-->
-<a href="https://github.com/WaterinoS" class="github-corner" aria-label="Github Autora" title="Github Autora"><svg width="80" height="80" viewBox="0 0 250 250" style="z-index:99999; fill:#70B7FD; color:#fff; position: fixed; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}@media only screen and (max-width:680px){ .github-corner > svg { right: auto!important; left: 0!important; transform: rotate(270deg)!important;}}</style>
-<!-- END Github Corner Ribbon - to remove -->
 <script src="js/script.js"></script>
 </body>
 </html>
