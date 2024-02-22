@@ -36,7 +36,7 @@
     <div class="content-menu">
         <div class="content-infos">
             <div class="info"><b>Verze:</b> 1.0.0</div>
-            <div class="info"><b>Poslední aktualizace:</b> 21.02.2024</div>
+            <div class="info"><b>Poslední aktualizace:</b> 22.02.2024</div>
         </div>
         <ul>
             <li class="scroll-to-link active" data-target="content-get-started">
@@ -111,6 +111,11 @@
 		<div class="overflow-hidden content-section" id="content-get-config">
             <h1>Konfigurace Pantheon API</h1>
             <p>
+				Konfigurace umožňuje nastavit chování jednotlivých procesů API za běhu.<br/>
+				Lze nastavit výchozí pořadače při zakládání/aktualizace záznamů taktéž i lze při POST/PUT požadavku nastavit, že se zobrazí na výstup všechny validační chybové hlášky nebo pouze jen jedna.
+				<br/><br/><h4>Postup</h4>
+			</p>
+			<p>
 				<strong>1. Dohledat a otevřít pořadač 'Konfigurační položky REST API Pantheon'.</strong><br/>
                 <img src="uploads/folder.png" /><br/>
 				<strong>2. Nad pořadačem v přehledu spustit funkci 'Konfigurovat Pantheon API'.</strong><br/>
@@ -129,38 +134,115 @@
 		<div class="overflow-hidden content-section" id="content-get-recommended-filters">
             <h1>Doporučené filtrování při GET požadavku</h1>
             <p>
+				<strong>Vždy platí zafiltrovat co nejvíce pro nejrychlejší zpracování a výstup.</strong>
                 <h4>Query parametry</h4>
-            <table class="central-overflow-x">
-                <thead>
-					<tr>
-						<th>Požadavek</th>
-						<th>Doporučené filtrování v query</th>
-						<th>Důvod</th>
-						<th>Rychlost (s)</th>
-					</tr>
-                </thead>
-                <tbody>
-					<tr>
-						<td>GET Platce</td>
-						<td>?jmeno=[V]&prijmeni=[V]&datumNarozeni=[V:MM-DD-YYYY]&ico=[V]&kodKnihy=[V]&variabilniSymbol=[V]</td>
-						<td>Nejrychlejší zpracování a výstup</td>
-						<td>TBD</td>
-					</tr>
-                </tbody>
-            </table>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Požadavek</th>
+							<th>Doporučené filtrování v query</th>
+							<th>Důvod</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>GET Customer/Pantheon/Platce</td>
+							<td>?jmeno=[V]&prijmeni=[V]&datumNarozeni=[V:MM-DD-YYYY]&ico=[V]&kodKnihy=[V]&variabilniSymbol=[V]</td>
+							<td>Nejrychlejší zpracování a výstup</td>
+						</tr>
+						<tr>
+							<td>GET Customer/Pantheon/Predpis</td>
+							<td>?platceId=[V]&kodKnihy=[V]&variabilniSymbol=[V]</td>
+							<td>Nejrychlejší zpracování a výstup</td>
+						</tr>
+						<tr>
+							<td>GET Customer/Pantheon/Uhrada/Predpis</td>
+							<td>?platceId=[V]&kodKnihy=[V]&predpisId=[V]</td>
+							<td>Nejrychlejší zpracování a výstup</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<!-- USE CASES -->
 		<div class="overflow-hidden content-section" id="content-get-processes-dr">
             <h1>Chování - Use Case: Založení dobropisu</h1>
+			<!-- 
+			<pre>
+				Příklad úspěšného založení
+				<code class="json">
+					TODO
+				</code>
+			</pre> 
+			-->
 			<p>
-                TODO
+				<h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Založení instance dobropisu</td>
+							<td>Založení instance dobropisu na základě vstupního modelu POST požadavku - zpracování dat a založení samotného dobropisu s externím id.<br/>Když neexistuje organizace definovaná na modelu, api se jí pokusí automaticky založit.</td>
+						</tr>
+						<tr>
+							<td>Vypořádání podkladové faktury dobropisem</td>
+							<td>Když je v modelu nainicializovaná proměnná podkladovaFakturaId, tak se api pokusí vypořádat tuto fakturu dobropisem, když ovšem nastane vyjímka/interní chyba tak se založený dobropis smaže a s ním i externí id.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí založený záznam dobropisu.</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-processes-fv">
             <h1>Chování - Use Case: Založení faktury vydané</h1>
+			<!-- 
+			<pre>
+				Příklad úspěšného založení
+				<code class="json">
+					TODO
+				</code>
+			</pre> 
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Založení instance faktury vydané</td>
+							<td>Založení instance faktury vydané na základě vstupního modelu POST požadavku - zpracování dat a založení faktury vydané s externím id.<br/>Když neexistuje organizace definovaná na modelu, api se jí pokusí automaticky založit.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí založený záznam FV.</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<!-- USE CASES - PLÁTCE -->
@@ -208,105 +290,329 @@
 				</code>
 			</pre>
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Založení instance plátce</td>
+							<td>Založení instance plátce na základě vstupního modelu POST požadavku - zpracování dat a založení plátce s externím id.<br/>Když neexistuje organizace definovaná na modelu, api se jí pokusí automaticky založit.</td>
+						</tr>
+						<tr>
+							<td>Založení instance poplatníka</td>
+							<td>Následuje založení karty poplatníka.</td>
+						</tr>
+						<tr>
+							<td>Založení instance platebního symbolu</td>
+							<td>Následuje založení instance platebního symbolu pro variabilní a specifický symbol.</td>
+						</tr>
+						<tr>
+							<td>Založení instance aktivního plátce</td>
+							<td>Následuje založení aktivního plátce.</td>
+						</tr>
+						<tr>
+							<td>Založení instance aktivního poplatníka</td>
+							<td>Následuje založení aktivního poplatníka.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí založený záznam plátce.</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-processes-put-platce">
             <h1>Chování - Use Case: Aktualizace plátce</h1>
+			<!-- 
 			<pre>
 				Příklad úspěšné aktualizace
 				<code class="json">
 					TODO
 				</code>
-			</pre>
+			</pre> 
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Aktualizace plátce</td>
+							<td>Proběhne aktualizace záznamu plátce na základě vstupního PUT modelu.<br/>Aktualizuje se pouze název plátce, organizace, spojovaci_cislo a poznámka.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí aktualizovaný záznam plátce.</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-processes-inv-platce">
             <h1>Chování - Use Case: Zneplatnění plátce</h1>
+			<!--
 			<pre>
 				Příklad úspěšného zneplatnění
 				<code class="json">
 					TODO
 				</code>
 			</pre>
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+							<td>Zneplatnění plátce</td>
+							<td>API provolá cowley funkci, která ukončí platnost plátce na základě datumu ukončení a komentáře.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí aktualizovaný záznam plátce.</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<!-- USE CASES - PŘEDPIS -->
 		<div class="overflow-hidden content-section" id="content-get-processes-pred">
             <h1>Chování - Use Case: Založení předpisu</h1>
+			<!--
 			<pre>
 				Příklad úspěšného založení
 				<code class="json">
 					TODO
 				</code>
 			</pre>
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TODO</td>
+							<td>TODO</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-processes-put-pred">
             <h1>Chování - Use Case: Aktualizace předpisu</h1>
+			<!--
 			<pre>
 				Příklad úspěšné aktualizace
 				<code class="json">
 					TODO
 				</code>
 			</pre>
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TODO</td>
+							<td>TODO</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-processes-inv-pred">
             <h1>Chování - Use Case: Stornování předpisu</h1>
+			<!--
 			<pre>
 				Příklad úspěšného stornování
 				<code class="json">
 					TODO
 				</code>
 			</pre>
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TODO</td>
+							<td>TODO</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<!-- USE CASES - PŘEPLATEK -->
 		<div class="overflow-hidden content-section" id="content-get-processes-prep">
             <h1>Chování - Use Case: Založení přeplatku</h1>
+			<!--
 			<pre>
 				Příklad úspěšného založení
 				<code class="json">
 					TODO
 				</code>
 			</pre>
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TODO</td>
+							<td>TODO</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-processes-put-prep">
             <h1>Chování - Use Case: Aktualizace přeplatku</h1>
+			<!--
 			<pre>
 				Příklad úspěšné aktualizace
 				<code class="json">
 					TODO
 				</code>
 			</pre>
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TODO</td>
+							<td>TODO</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-processes-inv-prep">
             <h1>Chování - Use Case: Stornování přeplatku</h1>
+			<!--
 			<pre>
 				Příklad úspěšného stornování
 				<code class="json">
 					TODO
 				</code>
 			</pre>
+			-->
             <p>
-                TODO
+                <h4>Procesy - Obecně</h4>
+				<p>
+					<code class="higlighted break-word">
+						TBD
+					</code>
+				</p>
+				<h4>Procesy - Technicky</h4>
+				<table class="central-overflow-x">
+					<thead>
+						<tr>
+							<th>Proces</th>
+							<th>Popis</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>TODO</td>
+							<td>TODO</td>
+						</tr>
+					</tbody>
+				</table>
             </p>
         </div>
     </div>
