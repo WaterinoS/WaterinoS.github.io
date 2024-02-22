@@ -192,6 +192,10 @@
 					</thead>
 					<tbody>
 						<tr>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
+						<tr>
 							<td>Založení instance dobropisu</td>
 							<td>Založení instance dobropisu na základě vstupního modelu POST požadavku - zpracování dat a založení samotného dobropisu s externím id.<br/>Když neexistuje organizace definovaná na modelu, api se jí pokusí automaticky založit.</td>
 						</tr>
@@ -201,7 +205,7 @@
 						</tr>
 						<tr>
 							<td>Výstup</td>
-							<td>API vrátí založený záznam dobropisu.</td>
+							<td>API vrátí založený záznam dobropisu, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -234,12 +238,16 @@
 					</thead>
 					<tbody>
 						<tr>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
+						<tr>
 							<td>Založení instance faktury vydané</td>
 							<td>Založení instance faktury vydané na základě vstupního modelu POST požadavku - zpracování dat a založení faktury vydané s externím id.<br/>Když neexistuje organizace definovaná na modelu, api se jí pokusí automaticky založit.</td>
 						</tr>
 						<tr>
 							<td>Výstup</td>
-							<td>API vrátí založený záznam FV.</td>
+							<td>API vrátí založený záznam FV, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -306,6 +314,10 @@
 					</thead>
 					<tbody>
 						<tr>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
+						<tr>
 							<td>Založení instance plátce</td>
 							<td>Založení instance plátce na základě vstupního modelu POST požadavku - zpracování dat a založení plátce s externím id.<br/>Když neexistuje organizace definovaná na modelu, api se jí pokusí automaticky založit.</td>
 						</tr>
@@ -327,7 +339,7 @@
 						</tr>
 						<tr>
 							<td>Výstup</td>
-							<td>API vrátí založený záznam plátce.</td>
+							<td>API vrátí založený záznam plátce, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -360,12 +372,16 @@
 					</thead>
 					<tbody>
 						<tr>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
+						<tr>
 							<td>Aktualizace plátce</td>
 							<td>Proběhne aktualizace záznamu plátce na základě vstupního PUT modelu.<br/>Aktualizuje se pouze název plátce, organizace, spojovaci_cislo a poznámka.</td>
 						</tr>
 						<tr>
 							<td>Výstup</td>
-							<td>API vrátí aktualizovaný záznam plátce.</td>
+							<td>API vrátí aktualizovaný záznam plátce, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -397,13 +413,13 @@
 						</tr>
 					</thead>
 					<tbody>
-							<tr>
+						<tr>
 							<td>Zneplatnění plátce</td>
 							<td>API provolá cowley funkci, která ukončí platnost plátce na základě datumu ukončení a komentáře.</td>
 						</tr>
 						<tr>
 							<td>Výstup</td>
-							<td>API vrátí aktualizovaný záznam plátce.</td>
+							<td>API vrátí aktualizovaný záznam plátce, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -437,8 +453,16 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>TODO</td>
-							<td>TODO</td>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
+						<tr>
+							<td>Založení předpisu poplatníka</td>
+							<td>Založení předpisu poplatníka podle modelu POSt požadavku a uložení externího id.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí vytvořený záznam předpisu, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -471,8 +495,16 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>TODO</td>
-							<td>TODO</td>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
+						<tr>
+							<td>Aktualizace předpisu poplatníka</td>
+							<td>Aktualizuje datum splatnosti na záznamu (datum_splatnosti).</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí aktualizovaný záznam předpisu, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -505,8 +537,12 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>TODO</td>
-							<td>TODO</td>
+							<td>Stornování předpisu poplatníka</td>
+							<td>Zavolá cowley funkci StornovatPredpis, která provede stornování předpisu.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí aktualizovaný záznam předpisu se stavem Stornováno, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -540,8 +576,16 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>TODO</td>
-							<td>TODO</td>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
+						<tr>
+							<td>Založení přeplatku</td>
+							<td>Založení přeplatku podle modelu POSt požadavku a uložení externího id.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí vytvořený záznam přeplatku, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -573,9 +617,17 @@
 						</tr>
 					</thead>
 					<tbody>
+<tr>
+							<td>Validace vstupního modelu</td>
+							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
+						</tr>
 						<tr>
-							<td>TODO</td>
-							<td>TODO</td>
+							<td>Aktualizace přeplatku</td>
+							<td>Aktualizuje datum splatnosti na záznamu (datum_splatnosti).</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí aktualizovaný záznam přeplatku, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -608,15 +660,18 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>TODO</td>
-							<td>TODO</td>
+							<td>Stornování přeplatku</td>
+							<td>Zavolá cowley funkci StornovatPredpis, která provede stornování přeplatku.</td>
+						</tr>
+						<tr>
+							<td>Výstup</td>
+							<td>API vrátí aktualizovaný záznam přeplatku se stavem Stornováno, popř. chybové hlášky.</td>
 						</tr>
 					</tbody>
 				</table>
             </p>
         </div>
     </div>
-    <div class="content-code"></div>
 </div>
 <script src="js/script.js"></script>
 </body>
