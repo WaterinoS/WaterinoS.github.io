@@ -36,7 +36,7 @@
     <div class="content-menu">
         <div class="content-infos">
             <div class="info"><b>Verze:</b> 1.0.0</div>
-            <div class="info"><b>Poslední aktualizace:</b> 22.02.2024</div>
+            <div class="info"><b>Poslední aktualizace:</b> 23.02.2024</div>
         </div>
         <ul>
             <li class="scroll-to-link active" data-target="content-get-started">
@@ -54,39 +54,46 @@
 			<li class="scroll-to-link" data-target="content-get-recommended-filters">
 				<a>Doporučené filtrovací parametry pro GET</a>
 			</li>
-			<li class="scroll-to-link" data-target="content-get-processes-dr">
-                <a>Chování - Use Case: Založení dobropisu</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-fv">
-                <a>Chování - Use Case: Založení faktury vydané</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-platce">
-                <a>Chování - Use Case: Založení plátce</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-put-platce">
-                <a>Chování - Use Case: Aktualizace plátce</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-inv-platce">
-                <a>Chování - Use Case: Zneplatnění plátce</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-pred">
-                <a>Chování - Use Case: Založení předpisu</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-put-pred">
-                <a>Chování - Use Case: Aktualizace předpisu</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-inv-pred">
-                <a>Chování - Use Case: Stornování předpisu</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-prep">
-                <a>Chování - Use Case: Založení přeplatku</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-put-prep">
-                <a>Chování - Use Case: Aktualizace přeplatku</a>
-            </li>
-			<li class="scroll-to-link" data-target="content-get-processes-inv-prep">
-                <a>Chování - Use Case: Stornování přeplatku</a>
-            </li>
+			<div class="dropdown">
+				<li class="scroll-to-link">
+					<a>Chování</a>
+				</li>
+			    <div class="dropdown-content">
+					<li class="scroll-to-link" data-target="content-get-processes-dr">
+						<a>Založení dobropisu</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-fv">
+						<a>Založení faktury vydané</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-platce">
+						<a>Založení plátce</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-put-platce">
+						<a>Aktualizace plátce</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-inv-platce">
+						<a>Zneplatnění plátce</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-pred">
+						<a>Založení předpisu</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-put-pred">
+						<a>Aktualizace předpisu</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-inv-pred">
+						<a>Stornování předpisu</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-prep">
+						<a>Založení přeplatku</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-put-prep">
+						<a>Aktualizace přeplatku</a>
+					</li>
+					<li class="scroll-to-link" data-target="content-get-processes-inv-prep">
+						<a>Stornování přeplatku</a>
+					</li>
+				</div>
+			</div>
         </ul>
     </div>
 </div>
@@ -100,7 +107,7 @@
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-installation">
-            <h1>Instalace Pantheon API</h1>
+            <h1>Instalace</h1>
             <p>
                 <strong>Je potřeba mít již hotovu instalaci klienta.</strong>
 				<object data="uploads/sys.doc.pdf" type="application/pdf" width="100%" height="500px">
@@ -109,7 +116,7 @@
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-config">
-            <h1>Konfigurace Pantheon API</h1>
+            <h1>Konfigurace</h1>
             <p>
 				Konfigurace umožňuje nastavit chování jednotlivých procesů API za běhu.<br/>
 				Lze nastavit výchozí pořadače při zakládání/aktualizace záznamů taktéž i lze při POST/PUT požadavku nastavit, že se zobrazí na výstup všechny validační chybové hlášky nebo pouze jen jedna.
