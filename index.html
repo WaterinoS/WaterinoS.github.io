@@ -183,13 +183,13 @@
 			</pre> 
 			-->
 			<p>
-				<h4>Procesy - Obecně</h4>
+				<h4>Procesy - Obecně (Client)</h4>
 				<p>
 					<code class="higlighted break-word">
 						TBD
 					</code>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -229,13 +229,21 @@
 			</pre> 
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+						Při vytvoření FV se provede načtení atributů z údajů pořízených u Plátce:<br/>
+						<span class="tab">•	Odběratel (Plátce)</span><br/>
+						<span class="tab">•	Variabilní symbol</span><br/>
+						<span class="tab">•	Párovací symbol</span><br/>
+						<span class="tab">•	Specifický symbol</span><br/>
+						<span class="tab">•	Účet</span><br/>
+						<span class="tab">•	Kontace</span><br/>
+						<span class="tab">•	Rozpočtová skladba</span><br/>
+						<span class="tab">•	Uživatel zadá částku, na kterou má být FV</span><br/>
+<br/>
+						Po uložení se provede ještě automaticky záznam do tabulky PohPoplatníkPředpis<br/>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -305,13 +313,13 @@
 				</code>
 			</pre>
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+					Uživatel zadá kód poplatku<br/>
+					Reference na subjekt do organizací<br/>
+					Systém vygeneruje párovací symbol a uloží plátce.<br/>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -363,13 +371,30 @@
 			</pre> 
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+						Funkce Opravit<br/>
+						- Oprava existujícího plátce pokud je opravnění<br/>
+<br/>
+						Lze editovat:<br/>
+						<span class="tab">
+							Bez omezení:<br/>
+							<span class="tab">•	Trvalý pobyt; Doručovací adresa</span><br/>
+							<span class="tab">•	Kontaktní adresa k případu</span><br/>
+							<span class="tab">•	Zástupce (např. zákonný)</span><br/>
+							<span class="tab">•	Poznámka</span><br/>
+<br/>
+							S omezením:<br/>
+							<span class="tab">•	Období splatnosti (měsíční, pololetní, roční,..)(pokud nejsou vygenerované předpisy v aktuálním období, na další období bez omezení)</span><br/>
+							<span class="tab">•	Sazba (pokud nejsou vygenerované předpisy v aktuálním období, na další období bez omezení)</span><br/>
+							<span class="tab">•	Způsob úhrady (pokladnou, bankou, SIPO,...)</span><br/>
+							<span class="tab">•	Platnost plátce (pokud nejsou vygenerované předpisy)</span><br/>
+<br/>
+						</span>
+						Nelze editovat:<br/>
+						<span class="tab">•	Kniha poplatku</span><br/>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -405,13 +430,30 @@
 			</pre>
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+						Funkce Ukončit platnost plátce (POH)<br/>
+						Parametry funkce:<br/>
+						<span class="tab">•	Datum ukončení</span><br/>
+						<span class="tab">•	Plátce</span><br/>
+						<span class="tab">•	Komentář</span><br/>
+<br/>
+						Pro případy, že se subjekt odstěhoval apod.:<br/>
+						Předpoklad:<br/>
+						<span class="tab">•	Oprávnění na tuto akci</span><br/>
+						<span class="tab">•	Existuje vazba mezi Plátcem a Poplatníkem (1:1) -> Plátce je sám sobě poplatníkem</span><br/>
+						<span class="tab">•	Existuje platný plátce pro poplatníka:</span><br/>
+						<span class="tab"><span class="tab">		Existuje záznam ve třídě PohPlatceAktivni , kde je atribut právě u jednoho záznamu PlatnostDo = null</span></span><br/>
+						Pokud není předpoklad splněn KONEC AKCE....<br/>
+						jinak <br/>
+						<span class="tab">	Aktualizace záznamu ve třídě</span><br/>
+						<span class="tab">	PohPlatceAktivni.PlatnostDo = požadovaný datum ukončení.</span><br/>
+						<span class="tab">	PohPlatceAktivni.Komentář = požadovaný komentář</span><br/>
+<br/>
+						<span class="tab">	Validační podmínka pro uložení:</span><br/>
+						<span class="tab"><span class="tab">		požadovaný datum ukončení musí být mladší nežli PohPoplatnikAktivni.PlatnostOd na právě aktualizovaném záznamu</span></span><br/>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -444,13 +486,24 @@
 			</pre>
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+						Parametry vizuální<br/>
+						<span class="tab">•	PreKnihaPredpisu.aktivní rok  (u knihy)</span><br/>
+						<span class="tab">•	Datum vystavení</span><br/>
+						<span class="tab">•	Aktuální období - parametr vizuální za předpokladu, že je na knize nastaveno generování do období</span><br/>
+<br/>
+						Paremertry nevizuální:<br/>
+						<span class="tab">•	Poradače FV (u knihy)  </span><br/>
+						<span class="tab">•	Kniha</span><br/>
+						<span class="tab">•	rezim_vyporadani_fv A-N -> funkce v režimu vypořádání předpisů</span><br/>
+<br/>
+						Funkce volá v cyklu  za skupinu aktivních poplatníků (platných poplatníků) za vybraného plátce<br/>
+						existující funkci 'PohGenerovaniPredpisuPoplatnikFunc'.<br/>
+<br/>
+						Platný poplatník = GetSqlPoplatnikJePlatnyKDatumu(DATUM PLATNOSTI = > zjištění datumu platnosti -> Use Casu Generuj Předpisy za Poplatnika)
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -486,13 +539,13 @@
 			</pre>
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
 					<code class="higlighted break-word">
 						TBD
 					</code>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -528,13 +581,13 @@
 			</pre>
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
 					<code class="higlighted break-word">
 						TBD
 					</code>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -567,13 +620,11 @@
 			</pre>
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+					Jestliže je částka větší než 0 vystavuji Vrubopis (pořadač FV na knize předpisu) v opačné případě vystavuji Dobropis (pořadač přeplatku na knize předpisu).
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -609,13 +660,13 @@
 			</pre>
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
 					<code class="higlighted break-word">
 						TBD
 					</code>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>
@@ -651,13 +702,13 @@
 			</pre>
 			-->
             <p>
-                <h4>Procesy - Obecně</h4>
+                <h4>Procesy - Obecně (Client)</h4>
 				<p>
 					<code class="higlighted break-word">
 						TBD
 					</code>
 				</p>
-				<h4>Procesy - Technicky</h4>
+				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
 					<thead>
 						<tr>

@@ -96,6 +96,11 @@ pre{
     border-radius: 3px;
 }
 
+.tab {
+    display: inline-block;
+    margin-left: 4em;
+}
+
 /* LEFT-MENU
 ----------------------------------------------------------------------------------------*/
 
