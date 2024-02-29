@@ -187,9 +187,11 @@
 			<p>
 				<h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+					Předpoklad:<br/>
+					<span class="tab">•	Oprávnění na tuto akci</span><br/>
+					<span class="tab">•	Mám vybrán předpis platby (faktura vydaná)</span><br/>
+					<span class="tab">•	bude napárován právě 1 předpis FV</span><br/>
+					Systém založí dobropis navázaný na vybranou FV.
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -233,6 +235,8 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
+						Předpoklad:<br/>
+						<span class="tab">•	Oprávnění na tuto akci</span><br/>
 						Při vytvoření FV se provede načtení atributů z údajů pořízených u Plátce:<br/>
 						<span class="tab">•	Odběratel (Plátce)</span><br/>
 						<span class="tab">•	Variabilní symbol</span><br/>
@@ -243,7 +247,7 @@
 						<span class="tab">•	Rozpočtová skladba</span><br/>
 						<span class="tab">•	Uživatel zadá částku, na kterou má být FV</span><br/>
 <br/>
-						Po uložení se provede ještě automaticky záznam do tabulky PohPoplatníkPředpis<br/>
+						Systém založí FV.<br/>
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -317,6 +321,8 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
+					Předpoklad:<br/>
+					<span class="tab">•	Oprávnění na tuto akci</span><br/>
 					Uživatel zadá kód poplatku<br/>
 					Reference na subjekt do organizací<br/>
 					Systém vygeneruje párovací symbol a uloží plátce.<br/>
@@ -375,8 +381,8 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-						Funkce Opravit<br/>
-						- Oprava existujícího plátce pokud je opravnění<br/>
+						Předpoklad:<br/>
+						<span class="tab">•	Oprávnění na tuto akci</span><br/>
 <br/>
 						Lze editovat:<br/>
 						<span class="tab">
@@ -395,6 +401,7 @@
 						</span>
 						Nelze editovat:<br/>
 						<span class="tab">•	Kniha poplatku</span><br/>
+						Systém aktualizuje daného plátce.
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -434,18 +441,20 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-						Funkce Ukončit platnost plátce (POH)<br/>
+						Předpoklad:<br/>
+						<span class="tab">•	Oprávnění na tuto akci</span><br/>
+						Funkce: Ukončit platnost plátce (POH)<br/>
 						Parametry funkce:<br/>
 						<span class="tab">•	Datum ukončení</span><br/>
 						<span class="tab">•	Plátce</span><br/>
 						<span class="tab">•	Komentář</span><br/>
 <br/>
 						Pro případy, že se subjekt odstěhoval apod.:<br/>
-						Předpoklad:<br/>
+						Předpoklad:<br/><br/>
 						<span class="tab">•	Oprávnění na tuto akci</span><br/>
 						<span class="tab">•	Existuje vazba mezi Plátcem a Poplatníkem (1:1) -> Plátce je sám sobě poplatníkem</span><br/>
 						<span class="tab">•	Existuje platný plátce pro poplatníka:</span><br/>
-						<span class="tab"><span class="tab">		Existuje záznam ve třídě PohPlatceAktivni , kde je atribut právě u jednoho záznamu PlatnostDo = null</span></span><br/>
+						<span class="tab"><span class="tab">Existuje záznam ve třídě PohPlatceAktivni , kde je atribut právě u jednoho záznamu PlatnostDo = null</span></span><br/>
 						Pokud není předpoklad splněn KONEC AKCE....<br/>
 						jinak <br/>
 						<span class="tab">	Aktualizace záznamu ve třídě</span><br/>
@@ -453,7 +462,8 @@
 						<span class="tab">	PohPlatceAktivni.Komentář = požadovaný komentář</span><br/>
 <br/>
 						<span class="tab">	Validační podmínka pro uložení:</span><br/>
-						<span class="tab"><span class="tab">		požadovaný datum ukončení musí být mladší nežli PohPoplatnikAktivni.PlatnostOd na právě aktualizovaném záznamu</span></span><br/>
+						<span class="tab"><span class="tab">Požadovaný datum ukončení musí být mladší nežli PohPoplatnikAktivni.PlatnostOd na právě aktualizovaném záznamu</span></span><br/>
+						Systém zneplatní daného plátce.
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -490,20 +500,19 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-						Parametry vizuální<br/>
-						<span class="tab">•	PreKnihaPredpisu.aktivní rok  (u knihy)</span><br/>
+						Předpoklad:<br/>
+						<span class="tab">•	Oprávnění na tuto akci</span><br/>
+						Parametry<br/>
+						<span class="tab">•	PreKnihaPredpisu.aktivní rok (u knihy)</span><br/>
 						<span class="tab">•	Datum vystavení</span><br/>
-						<span class="tab">•	Aktuální období - parametr vizuální za předpokladu, že je na knize nastaveno generování do období</span><br/>
+						<span class="tab">•	Aktuální období - parametr se použije za předpokladu, že je na knize nastaveno generování do období</span><br/>
 <br/>
-						Paremertry nevizuální:<br/>
-						<span class="tab">•	Poradače FV (u knihy)  </span><br/>
+						<span class="tab">•	Poradače FV (u knihy) </span><br/>
 						<span class="tab">•	Kniha</span><br/>
 						<span class="tab">•	rezim_vyporadani_fv A-N -> funkce v režimu vypořádání předpisů</span><br/>
 <br/>
-						Funkce volá v cyklu  za skupinu aktivních poplatníků (platných poplatníků) za vybraného plátce<br/>
-						existující funkci 'PohGenerovaniPredpisuPoplatnikFunc'.<br/>
-<br/>
-						Platný poplatník = GetSqlPoplatnikJePlatnyKDatumu(DATUM PLATNOSTI = > zjištění datumu platnosti -> Use Casu Generuj Předpisy za Poplatnika)
+						Program doplní podle nastavení na knize datum splatnosti a založí předpis.<br/>
+						Po založení předpisu se provede ještě automaticky záznam do tabulky PohPoplatníkPředpis.<br/>
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -543,9 +552,10 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+					Předpoklad:<br/>
+					<span class="tab">•	Oprávnění na tuto akci</span><br/>
+					<span class="tab">•	Předpis je ve stavu, který umožnuje změnu atributů</span><br/>
+					Systém aktualizuje daný předpis.
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -585,9 +595,10 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+					Předpoklad:<br/>
+					<span class="tab">•	Oprávnění na tuto akci</span><br/>
+					<span class="tab">•	Předpis je ve stavu, který umožnuje stornování</span><br/>
+					Po stornování předpisu se provede ještě automaticky stornování záznamu v tabulce PohPoplatníkPředpis.
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -624,7 +635,13 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					Jestliže je částka větší než 0 vystavuji Vrubopis (pořadač FV na knize předpisu) v opačné případě vystavuji Dobropis (pořadač přeplatku na knize předpisu).
+					Předpoklad:<br/>
+					<span class="tab">•	Oprávnění na tuto akci</span><br/>
+					<span class="tab">•	Mám vybrán  předpis platby (faktura vydaná)</span><br/>
+					<span class="tab">•	Bude napárován právě 1 předpis FV</span><br/>
+					<span class="tab"><span class="tab">•	Jestliže je částka větší než 0 vystavuji Vrubopis (pořadač FV na knize předpisu) v opačné případě vystavuji Přeplatek (pořadač přeplatku na knize předpisu)</span></span><br/>
+					Systém založí přeplatek navázaný na vybraný předpis.<br/>
+					Po založení přeplatku se provede ještě automaticky záznam do tabulky PohPoplatníkPředpis.<br/>
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -664,9 +681,10 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+					Předpoklad:<br/>
+					<span class="tab">•	Oprávnění na tuto akci</span><br/>
+					<span class="tab">•	Přeplatek je ve stavu, který umožnuje změnu atributů</span><br/>
+					Systém aktualizuje daný přeplatek.
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
@@ -706,9 +724,10 @@
             <p>
                 <h4>Procesy - Obecně (Client)</h4>
 				<p>
-					<code class="higlighted break-word">
-						TBD
-					</code>
+					Předpoklad:<br/>
+					<span class="tab">•	Oprávnění na tuto akci</span><br/>
+					<span class="tab">•	Přeplatek je ve stavu, který umožnuje stornování</span><br/>
+					Po stornování přeplatku se provede ještě automaticky stornování záznamu v tabulce PohPoplatníkPředpis.
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
 				<table class="central-overflow-x">
