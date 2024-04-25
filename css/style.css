@@ -171,6 +171,12 @@ pre{
 .content-menu ul li.active{
     background-color:#DCDEE9;
 }
+
+.content-menu li:hover
+{
+	padding-left: 15px;
+}
+
 .content-menu ul li:hover a,
 .content-menu ul li.active a{
     color: #00a8e3;
@@ -192,13 +198,14 @@ pre{
     text-transform: capitalize;
 }
 
+/* DROPDOWN
+----------------------------------------------------------------------------------------*/
 .dropdown {
   position: relative;
 }
 
 .dropdown-content {
   display: none;
-  position: absolute;
   right: 0;
   background-color: #f4f5f8;
   min-width: 160px;
@@ -208,6 +215,7 @@ pre{
 
 .dropdown li:hover{
     color: #00a8e3;
+	padding-left: 30px;
 }
 
 .dropdown-content a {
@@ -217,15 +225,93 @@ pre{
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown-content a:hover 
+{
+	background-color: #f1f1f1;
+}
 
 .dropdown:hover .dropdown-content {
-  display: block;
+	display: block;
 }
 
 .dropdown:hover .scroll-to-link {
-  width: 300px;
+	width: 300px;
 }
+
+/* MODAL */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+:root {
+	--vs-primary: 29 92 255;
+}
+
+/*Dialog Styles*/
+dialog {
+	padding: 1rem 3rem;
+	background: white;
+	max-width: auto;
+	padding-top: 2rem;
+	border-radius: 20px;
+	border: 0;
+	box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+	animation: fadeIn 1s ease both;
+	&::backdrop {
+		animation: fadeIn 1s ease both;
+		background: rgb(255 255 255 / 40%);
+		z-index: 2;
+		backdrop-filter: blur(20px);
+	}
+	.x {
+		filter: grayscale(1);
+		border: none;
+		background: none;
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		transition: ease filter, transform 0.3s;
+		cursor: pointer;
+		transform-origin: center;
+		&:hover {
+			filter: grayscale(0);
+			transform: scale(1.1);
+		}
+	}
+	h2 {
+		font-weight: 600;
+		font-size: 2rem;
+		padding-bottom: 1rem;
+	}
+	p {
+		font-size: 1rem;
+		line-height: 1.3rem;
+		padding: 0.5rem 0;
+		a {
+			&:visited {
+				color: rgb(var(--vs-primary));
+			}
+		}
+	}
+}
+
+i.primary {
+	transition: all 0.25s ease;
+	border: 0;
+	cursor: pointer;
+	box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
+	&:hover {
+		box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
+	}
+}
+
+/*General Styles*/
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 
 /* CONTENT-PAGE
 ----------------------------------------------------------------------------------------*/

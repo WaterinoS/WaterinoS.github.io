@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Helios Pantheon API - Dokumentace</title>
-    <meta name="description" content="">
+    <meta name="description" content="Dokumentace k REST API Pantheon.">
     <meta name="author" content="Antonín Fűrbach">
 
     <meta http-equiv="cleartype" content="on">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/style.css" media="all">
 	<link rel="icon" href="uploads/logo.svg" sizes="any" type="image/svg+xml">
     <script>hljs.initHighlightingOnLoad();</script>
+	<link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -36,16 +37,21 @@
     <div class="mobile-menu-closer"></div>
     <div class="content-menu">
         <div class="content-infos">
-            <div class="info"><b>Verze:</b> 1.0.0</div>
+            <div class="info"><b>Verze:</b> 1.0.3
+				<i class="fa fa-question-circle primary" aria-hidden="true" onclick="window.dialog.showModal();"></i>
+			</div>
 			<div class="info"><b>Garant:</b> <a href="mailto:antonin.furbach@assecosol.com">Antonín Fűrbach</a></div>
-            <div class="info"><b>Poslední aktualizace:</b> 29.02.2024</div>
+            <div class="info"><b>Poslední aktualizace:</b> 25.04.2024</div>
         </div>
-        <ul>
+        <ul>		
             <li class="scroll-to-link active" data-target="content-get-started">
                 <a>Úvod</a>
             </li>
 			<li class="scroll-to-link" data-target="content-get-installation">
                 <a>Instalace</a>
+            </li>
+			<li class="scroll-to-link" data-target="content-get-cert-gen">
+                <a>Generování certifikátu</a>
             </li>
             <li class="scroll-to-link" data-target="content-get-config">
                 <a>Konfigurace</a>
@@ -114,6 +120,16 @@
                 <strong>Je potřeba mít již hotovu instalaci klienta.</strong>
 				<object data="uploads/sys.doc.pdf" type="application/pdf" width="100%" height="500px">
 					<p>Nepodařilo se zobrazit PDF soubor.</p>
+					<a href="uploads/sys.doc.pdf">Stáhnout PDF</a>
+				</object>
+            </p>
+        </div>
+		<div class="overflow-hidden content-section" id="content-get-cert-gen">
+            <h1>Postup pro generování certifikátu</h1>
+            <p>
+				<object data="uploads/gen.cert.pdf" type="application/pdf" width="100%" height="500px">
+					<p>Nepodařilo se zobrazit PDF soubor.</p>
+					<a href="uploads/gen.cert.pdf">Stáhnout PDF</a>
 				</object>
             </p>
         </div>
@@ -138,6 +154,9 @@
             <h1>Technická dokumentace</h1>
             <p>
                 <a href="./swaggerDoc/index.html">Technická dokumentace zde</a>
+            </p>
+			<p>
+                <a href="./uploads/dto_models.zip">Aktuální DTO Modely v programovacím jazyce C#</a>
             </p>
         </div>
 		<div class="overflow-hidden content-section" id="content-get-recommended-filters">
@@ -246,7 +265,7 @@
 						<span class="tab">•	Kontace</span><br/>
 						<span class="tab">•	Rozpočtová skladba</span><br/>
 						<span class="tab">•	Uživatel zadá částku, na kterou má být FV</span><br/>
-<br/>
+						<br/>
 						Systém založí FV.<br/>
 				</p>
 				<h4>Procesy - Technicky (API)</h4>
@@ -528,8 +547,12 @@
 							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
 						</tr>
 						<tr>
+							<td>Založení faktury vydané</td>
+							<td>Založení faktury vydané podle modelu POST požadavku a uložení externího id.</td>
+						</tr>
+						<tr>
 							<td>Založení předpisu poplatníka</td>
-							<td>Založení předpisu poplatníka podle modelu POSt požadavku a uložení externího id.</td>
+							<td>Založení předpisu poplatníka podle modelu POST požadavku a uložení externího id.</td>
 						</tr>
 						<tr>
 							<td>Výstup</td>
@@ -657,8 +680,12 @@
 							<td>API zvaliduje vstupní model požadavku a v případě chyb se rovnou odkáže na proces Výstup.</td>
 						</tr>
 						<tr>
+							<td>Založení dobropisu</td>
+							<td>Založení dobropisu podle modelu POST požadavku a uložení externího id.</td>
+						</tr>
+						<tr>
 							<td>Založení přeplatku</td>
-							<td>Založení přeplatku podle modelu POSt požadavku a uložení externího id.</td>
+							<td>Založení přeplatku podle modelu POST požadavku a uložení externího id.</td>
 						</tr>
 						<tr>
 							<td>Výstup</td>
@@ -754,4 +781,51 @@
 </div>
 <script src="js/script.js"></script>
 </body>
+
+<dialog id="dialog">
+	<div class="content">
+		<div class="overflow-hidden content-section">
+			<p>
+				<h4>Historie změn</h4>
+				<table class="central-overflow-x" style="width: 100%">
+					<thead>
+						<tr>
+							<th>Verze</th>
+							<th>Datum</th>
+							<th>Autor</th>
+							<th>Změna</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1.0.0</td>
+							<td>22.02.2024</td>
+							<td>Antonín Fűrbach</td>
+							<td>Vznik dokumentace</td>
+						</tr>
+						<tr>
+							<td>1.0.1</td>
+							<td>04.04.2024</td>
+							<td>Antonín Fűrbach</td>
+							<td>Přidání záložky "Generování certifikátu" a provedeno pár dalších úprav</td>
+						</tr>
+						<tr>
+							<td>1.0.2</td>
+							<td>15.04.2024</td>
+							<td>Antonín Fűrbach</td>
+							<td>Dodání C# DTO Modelů k technické dokumentaci</td>
+						</tr>
+						<tr>
+							<td>1.0.3</td>
+							<td>25.04.2024</td>
+							<td>Antonín Fűrbach</td>
+							<td>Úprava technických popisů chování</td>
+						</tr>
+					</tbody>
+				</table>
+			</p>
+		</div>
+	</div>
+	<button onclick="window.dialog.close();" aria-label="close" class="x">❌</button>
+</dialog>
 </html>
