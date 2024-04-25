@@ -86,3 +86,9 @@ window.addEventListener('scroll', function (e) {
     e.preventDefault();
     onScroll();
 });
+
+window.onclick = function(e) {
+    if (e.target == window.dialog) {
+		window.dialog.close();
+    }
+};
